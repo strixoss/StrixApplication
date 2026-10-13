@@ -5,4 +5,4 @@ This repository distributes release documentation for the applications published
 ## Applications
 
 - [StrixTuiSSH](./StrixTuiSSH/INSTALL-LINUX.md) — release information and Linux installation.
-- [StrixTuiSSH on Windows](./StrixTuiSSH/INSTALL-WINDOWS.md) — install and run StrixTuiSSH through WSL 2.
+- [StrixTuiSSH on Windows](./StrixTuiSSH/INSTALL-WINDOWS.md) — native Windows installation or WSL 2.

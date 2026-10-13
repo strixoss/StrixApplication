@@ -1,42 +1,62 @@
 # StrixTuiSSH on Windows
 
-StrixTuiSSH is currently distributed as a Linux terminal application. There is no native Windows installer. On Windows, run it in Windows Subsystem for Linux (WSL 2) with Ubuntu.
+StrixTuiSSH can be installed natively on Windows with Windows PowerShell 5.1 or newer. Running it in Ubuntu under WSL 2 is also an option.
 
-## 1. Install WSL 2 and Ubuntu
+## Native Windows installation
 
-Open PowerShell as Administrator and run:
+### Requirements
+
+- Windows PowerShell 5.1 or newer.
+- Python 3.10 or newer, with the `venv` and `ensurepip` modules available. The installer checks for `python.exe` or the Python launcher `py.exe`.
+- The Windows OpenSSH Client to connect to SSH hosts. If `ssh.exe` is not available, the installer warns you; install the OpenSSH Client optional feature in Windows to enable SSH connections.
+
+### Install
+
+Open PowerShell and download the installer script from the release:
+
+```powershell
+$installer = Join-Path $env:TEMP "install-strixtuissh.ps1"
+Invoke-WebRequest `
+  -Uri "https://github.com/strixoss/StrixApplication/releases/download/strixtuissh-v0.1.5/install.ps1" `
+  -OutFile $installer
+```
+
+Review the downloaded script before running it:
+
+```powershell
+Get-Content $installer
+```
+
+Then run the installer for version `0.1.5`:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File $installer -Version 0.1.5
+```
+
+The installer downloads the application package and its `SHA256SUMS`, verifies the package checksum, and installs StrixTuiSSH for the current user. To install another release, replace `0.1.5` with the version number available on the [GitHub Releases page](https://github.com/strixoss/StrixApplication/releases).
+
+After installation, open a new PowerShell window and run:
+
+```powershell
+strixtuissh
+```
+
+### Uninstall
+
+Download `install.ps1` from the release you installed, then run:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File $installer -Uninstall
+```
+
+By default, uninstalling keeps saved hosts and telemetry state. Use `-Purge` together with `-Uninstall` to remove that saved data as well.
+
+## Alternative: install in WSL 2
+
+To run the Linux release inside Ubuntu on Windows, open PowerShell as Administrator and install WSL 2 with Ubuntu:
 
 ```powershell
 wsl --install -d Ubuntu
 ```
 
-Restart Windows if prompted, then launch **Ubuntu** from the Start menu. Complete Ubuntu's first-run setup by creating a Linux username and password.
-
-If WSL is already installed, make sure the Ubuntu distribution uses WSL 2:
-
-```powershell
-wsl --set-version Ubuntu 2
-```
-
-## 2. Install StrixTuiSSH in Ubuntu
-
-In the Ubuntu terminal, follow the Linux installation instructions in [the StrixTuiSSH release guide](./INSTALL-LINUX.md). The release installer is a shell script, so run it inside Ubuntu—not directly from PowerShell or Command Prompt.
-
-For example, the release guide's commands can be run in Ubuntu as follows (replace the tag with the release you want):
-
-```sh
-curl -fsSLO https://github.com/strixoss/StrixApplication/releases/download/strixtuissh-v0.1.0/install.sh
-sh install.sh
-```
-
-To verify the download before running it, use the checksum instructions in the release guide.
-
-## 3. Start the application
-
-Launch StrixTuiSSH from the Ubuntu terminal using the command installed by the release. The application's SSH connections use the network available to the WSL environment.
-
-## Notes
-
-- Install and run the application from the Ubuntu/WSL terminal; the release does not provide a native `.exe` or `.msi` installer.
-- Release tags and available downloads are listed on the [GitHub Releases page](https://github.com/strixoss/StrixApplication/releases).
-- See [the release guide](./INSTALL-LINUX.md) for versioning, verification, and release information.
+Restart Windows if prompted, launch **Ubuntu** from the Start menu, and finish its first-run setup. Then follow [the Linux installation instructions](./INSTALL-LINUX.md) in the Ubuntu terminal. Do not run the Linux shell installer directly from PowerShell or Command Prompt.
