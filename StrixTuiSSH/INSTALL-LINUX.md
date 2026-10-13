@@ -6,14 +6,21 @@ This repository is used **only for distributing releases**. It contains no sourc
 
 ## Installation
 
+The installer requires Python 3.10 or newer with `venv` and `ensurepip`, plus
+`sha256sum` and either `curl` or `wget`. It installs for the current user and
+does not require root privileges.
+
 Download the installer from the release you want and run it:
 
 ```sh
-curl -fsSLO https://github.com/strixoss/StrixApplication/releases/download/strixtuissh-v0.1.0/install.sh
-sh install.sh
+curl -fsSLO https://github.com/strixoss/StrixApplication/releases/download/strixtuissh-v0.2.0/install.sh
+sh install.sh --version 0.2.0
 ```
 
-To install a different version, replace `strixtuissh-v0.1.0` in the URL with the tag of that release. All releases are listed here:
+To install a different version, replace `strixtuissh-v0.2.0` in the URL with
+the tag of that release and change `--version 0.2.0` to its version number.
+To install the latest release instead, run `sh install.sh` without `--version`.
+All releases are listed here:
 
 **https://github.com/strixoss/StrixApplication/releases**
 
@@ -25,16 +32,12 @@ To install a different version, replace `strixtuissh-v0.1.0` in the URL with the
 less install.sh
 ```
 
-### Verifying the installer
+### Package verification
 
-Each release includes a `SHA256SUMS` file. To verify the downloaded installer:
-
-```sh
-curl -fsSLO https://github.com/strixoss/StrixApplication/releases/download/strixtuissh-v0.1.0/SHA256SUMS
-sha256sum -c SHA256SUMS --ignore-missing
-```
-
-If the check fails, do not run the script.
+The installer downloads the application package and its `SHA256SUMS` file,
+then verifies the package checksum before installing it. `SHA256SUMS` covers
+the application packages, not `install.sh`; review the installer script before
+running it.
 
 ## Versioning
 

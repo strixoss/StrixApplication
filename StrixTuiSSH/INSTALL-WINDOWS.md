@@ -17,7 +17,7 @@ Open PowerShell and download the installer script from the release:
 ```powershell
 $installer = Join-Path $env:TEMP "install-strixtuissh.ps1"
 Invoke-WebRequest `
-  -Uri "https://github.com/strixoss/StrixApplication/releases/download/strixtuissh-v0.1.5/install.ps1" `
+  -Uri "https://github.com/strixoss/StrixApplication/releases/download/strixtuissh-v0.2.0/install.ps1" `
   -OutFile $installer
 ```
 
@@ -27,13 +27,13 @@ Review the downloaded script before running it:
 Get-Content $installer
 ```
 
-Then run the installer for version `0.1.5`:
+Then run the installer for version `0.2.0`:
 
 ```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File $installer -Version 0.1.5
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File $installer -Version 0.2.0
 ```
 
-The installer downloads the application package and its `SHA256SUMS`, verifies the package checksum, and installs StrixTuiSSH for the current user. To install another release, replace `0.1.5` with the version number available on the [GitHub Releases page](https://github.com/strixoss/StrixApplication/releases).
+The installer downloads the application package and its `SHA256SUMS`, verifies the package checksum, and installs StrixTuiSSH for the current user. To install another release, replace `0.2.0` with the version number available on the [GitHub Releases page](https://github.com/strixoss/StrixApplication/releases).
 
 After installation, open a new PowerShell window and run:
 
