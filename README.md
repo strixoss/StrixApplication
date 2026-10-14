@@ -6,5 +6,9 @@ This repository distributes release documentation for the applications published
 
 ### StrixTuiSSH
 
+StrixTuiSSH is a keyboard-driven terminal user interface (TUI) SSH client
+written in Python. It helps you manage saved hosts and open SSH sessions from
+Linux, Windows, or WSL 2.
+
 - [StrixTuiSSH on Linux](./StrixTuiSSH/INSTALL-LINUX.md) — release information and Linux installation.
 - [StrixTuiSSH on Windows](./StrixTuiSSH/INSTALL-WINDOWS.md) — native Windows installation or WSL 2.

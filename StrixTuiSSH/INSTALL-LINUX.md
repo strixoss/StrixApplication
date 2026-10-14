@@ -13,12 +13,12 @@ does not require root privileges.
 Download the installer from the release you want and run it:
 
 ```sh
-curl -fsSLO https://github.com/strixoss/StrixApplication/releases/download/strixtuissh-v0.2.0/install.sh
-sh install.sh --version 0.2.0
+curl -fsSLO https://github.com/strixoss/StrixApplication/releases/download/strixtuissh-v0.3.0/install.sh
+sh install.sh --version 0.3.0
 ```
 
-To install a different version, replace `strixtuissh-v0.2.0` in the URL with
-the tag of that release and change `--version 0.2.0` to its version number.
+To install a different version, replace `strixtuissh-v0.3.0` in the URL with
+the tag of that release and change `--version 0.3.0` to its version number.
 To install the latest release instead, run `sh install.sh` without `--version`.
 All releases are listed here:
 
