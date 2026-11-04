@@ -24,6 +24,23 @@ All releases are listed here:
 
 **https://github.com/strixoss/StrixApplication/releases**
 
+### ARMv7 (32-bit ARM) machines
+
+On 32-bit ARM (armv7) there are no prebuilt wheels for some dependencies
+(e.g. `pycryptodomex`), so they are compiled during installation. Before
+running `install.sh` for version 0.6.0, install a compiler and the Python
+headers:
+
+- Debian / Raspberry Pi OS / Ubuntu: `sudo apt install build-essential python3-dev`
+- Fedora: `sudo dnf install gcc python3-devel`
+- Alpine: `apk add build-base python3-dev`
+
+Then run the installer again.
+
+Alternative without a compiler: install `python3-pycryptodomex` from your
+distribution, provided the virtual environment is created with
+`--system-site-packages`.
+
 ### Review before running
 
 `install.sh` is a shell script that runs on your machine. Read it before executing it:
