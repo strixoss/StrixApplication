@@ -13,12 +13,12 @@ does not require root privileges.
 Download the installer from the release you want and run it:
 
 ```sh
-curl -fsSLO https://github.com/strixoss/StrixApplication/releases/download/strixtuissh-v0.6.1/install.sh
-sh install.sh --version 0.6.1
+curl -fsSLO https://github.com/strixoss/StrixApplication/releases/download/strixtuissh-v0.6.5/install.sh
+sh install.sh --version 0.6.5
 ```
 
-To install a different version, replace `strixtuissh-v0.6.1` in the URL with
-the tag of that release and change `--version 0.6.1` to its version number.
+To install a different version, replace `strixtuissh-v0.6.5` in the URL with
+the tag of that release and change `--version 0.6.5` to its version number.
 To install the latest release instead, run `sh install.sh` without `--version`.
 All releases are listed here:
 
@@ -28,7 +28,7 @@ All releases are listed here:
 
 On 32-bit ARM (armv7) there are no prebuilt wheels for some dependencies
 (e.g. `pycryptodomex`), so they are compiled during installation. Before
-running `install.sh` for version 0.6.1, install a compiler and the Python
+running `install.sh` for version 0.6.5, install a compiler and the Python
 headers:
 
 - Debian / Raspberry Pi OS / Ubuntu: `sudo apt install build-essential python3-dev`
